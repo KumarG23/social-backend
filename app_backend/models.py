@@ -19,7 +19,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.author.username} - {self.created_at}'
+        return f'{self.poster.username} - {self.created_at}'
 
 
 

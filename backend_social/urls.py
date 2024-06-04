@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView
 from app_backend.views import *
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,3 +29,7 @@ urlpatterns = [
     path('posts/create/', create_post, name='create_post'),
     path('posts/<str:username>/', user_posts, name='user_posts'),
 ]
+
+if settings.DEBUG:
+    from django.conf.urls.static import static
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
