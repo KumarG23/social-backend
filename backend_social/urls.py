@@ -27,7 +27,11 @@ urlpatterns = [
     path('create-user/', create_user, name='create_user'),
     path('posts/', all_posts, name='all_posts'),
     path('posts/create/', create_post, name='create_post'),
-    path('posts/<str:username>/', user_posts, name='user_posts'),
+    path('user/posts/', user_posts, name='user_posts'),
+    path('posts/<int:pk>/delete/', delete_post, name='delete_post'),
+    path('posts/<int:pk>/update/', update_post, name='update_post'),
+
+
 ]
 
 if settings.DEBUG:
